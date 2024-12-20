@@ -18,7 +18,7 @@ export type ThemeContextType = {
  * @returns { Theme } theme: Theme to apply to the application, either default or saved in local storage.
 */
 export const getTheme = (): Theme => {
-    let currentTheme = Theme.System;
+    let currentTheme = Theme.Light;
     if ((localStorage.theme && localStorage.theme === Theme.System) || !localStorage.theme) {
         currentTheme = Theme.System
     } else if (localStorage.theme && localStorage.theme === Theme.Dark) {

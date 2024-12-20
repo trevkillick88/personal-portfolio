@@ -17,7 +17,9 @@ export default function NavBar() {
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Trev Killick</span>
             <img
-              alt=""
+              alt="Tailwind Logo - Placeholder Logo"
+              height="32px"
+              width="38px"
               src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
               className="h-8 w-auto"
             />

@@ -1,4 +1,3 @@
-import React from "react";
 import { NavigationList, SocialList } from '../types/navigation.tsx';
 
 const navigation = NavigationList;
@@ -26,7 +25,7 @@ export default function Footer() {
                         </a>
                     ))}
                 </div>
-                <p className="mt-6 text-center text-sm/6 text-gray-600 dark:text-gray-400">&copy; {year} Trevor Killick. All rights reserved.</p>
+                <p className="mt-10 text-center text-sm/6 text-gray-600 dark:text-gray-400">&copy; {year} Trevor Killick. All rights reserved.</p>
             </div>
         </footer>
     )

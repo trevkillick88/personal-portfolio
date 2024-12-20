@@ -22,7 +22,7 @@ const Projects = () => {
             />
             <div className="px-6 pt-14 lg:px-8">
                 <div className="mx-auto max-w-2xl pt-24 text-center sm:pt-40">
-                    <h1 className="text-5xl font-semibold tracking-tight text-gray-900 dark:text-white dark:text-white sm:text-7xl">Projects</h1>
+                    <h1 className="text-5xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-7xl">Projects</h1>
                     <p className="mt-8 text-pretty text-lg font-medium text-gray-600 dark:text-gray-400 sm:text-xl/8">
                         I have worked on a variety of projects using different technologies. Here are a few examples.
                     </p>

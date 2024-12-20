@@ -7,9 +7,9 @@ import { useTheme } from '../context/theme.tsx';
 
 const Projects = () => {
     //-- Consume the context provider for updates
-    const {  } = useTheme();
-    //-- Use to switch screengrabs
-    let isThemeDark = isDark();
+    useTheme();
+    //-- Use to switch screenplays
+    const isThemeDark = isDark();
 
     return (
         <React.Fragment>

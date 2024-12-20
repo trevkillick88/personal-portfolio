@@ -1,19 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import {  getTheme, Theme } from './types/theme.tsx';
+import {  getTheme, Theme, getSystemTheme } from './types/theme.tsx';
 import { ThemeContext } from './context/theme.tsx';
 
-/**
- * Return the current system Theme preference, Light or Dark.
- * 
- * @param { Void } 
- * @returns { Theme } theme: Theme to apply to the application, Either Light or Dark.
- */
-const getSystemTheme = (): Theme => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        return Theme.Dark;
-    }
-    return Theme.Light;
-}
+
 
 /**
  * Apply Theme based on the current theme, will convert System to Dark or Light based on the system preference.
@@ -49,7 +38,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         applyTheme(theme);
     }, [theme]);
 
-    /* Handle Watching for System Prefrence changes and the Theme is set to System*/
+    /* Handle Watching for System Preference changes and the Theme is set to System*/
     useEffect(() => {
         const mediaQueryList = window.matchMedia("(prefers-color-scheme: dark)");
         const handleChange = () => {

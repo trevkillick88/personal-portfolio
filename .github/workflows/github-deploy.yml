@@ -1,6 +1,6 @@
 name: GitHub Deploy to TrevKillick.dev
 run-name: ${{ github.actor }} is Deploying to Production 🚀
-on: [push]
+on: [push,workflow_dispatch]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest

@@ -1,4 +1,5 @@
 import { NavigationList, SocialList } from '../types/navigation.tsx';
+import { Link } from 'react-router-dom'
 
 const navigation = NavigationList;
 const social = SocialList;
@@ -12,9 +13,9 @@ export default function Footer() {
                 {navigation.length > 0 && (
                 <nav aria-label="Footer" className="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6">
                     {navigation.map((item) => (
-                        <a key={item.name} href={item.href} className="text-gray-600 dark:text-gray-400 hover:text-sky-500 dark:hover:text-sky-400">
+                        <Link to={item.href} className="text-gray-600 dark:text-gray-400 hover:text-sky-500 dark:hover:text-sky-400">
                             {item.name}
-                        </a>
+                        </Link>
                     ))}
                 </nav>)}
                 <div className="mt-16 flex justify-center gap-x-10">

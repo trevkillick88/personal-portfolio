@@ -34,6 +34,7 @@ export default function Footer() {
                         </a>
                     </div>
                 </div>
+                <p className="mt-2 text-center text-sm/6 text-gray-600 dark:text-gray-400">Created by Trev Killick, v{VITE_APP_VERSION}</p>
             </div>
         </footer>
     )

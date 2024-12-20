@@ -1,0 +1,7 @@
+Content License  
+
+All content on this website, including but not limited to text, images, and design elements, is © 2024 Trevor Killick.  
+
+Permission is NOT granted to copy, reproduce, redistribute, or modify the content in any form without explicit written consent from the copyright owner.  
+
+The website code is licensed under the MIT License (see LICENSE). This restriction applies only to the content and does not affect the use of the code itself.

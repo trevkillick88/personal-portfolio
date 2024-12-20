@@ -4,6 +4,7 @@ on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
+    environment: Build
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -16,3 +17,21 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm install
+      - run: npm run build
+        env:
+          VITE_DATE_STARTED_TECH:  ${{ secrets.VITE_DATE_STARTED_TECH }}
+          VITE_DATE_STARTED_DEV:  ${{ secrets.VITE_DATE_STARTED_DEV }}
+          VITE_DATE_STARTED_MANAGING:  ${{ secrets.VITE_DATE_STARTED_MANAGING }}
+          VITE_APP_ID:  ${{ secrets.VITE_APP_ID }}
+      - name: 📂 Sync files
+      - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: dist
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}

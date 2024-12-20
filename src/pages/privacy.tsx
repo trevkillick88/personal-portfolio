@@ -17,7 +17,7 @@ const Privacy = () => {
             </div>
             <div
                 aria-hidden="true"
-                className="absolute dark:hidden inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:-mr-80 lg:-mr-96"
+                className="absolute dark:hidden inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-sky-400/10 ring-1 ring-sky-400 sm:-mr-80 lg:-mr-96"
             />
             <div className="px-6 pt-14 lg:px-8">
                 <div className="mx-auto max-w-2xl pt-24 text-center sm:pt-40">
@@ -48,7 +48,7 @@ const Privacy = () => {
                         <li><strong>No Cookies:</strong> Analytics do not rely on cookies or any other tracking technology that could store information on your device.</li>
                         <li><strong>Purpose:</strong> Data is used solely to understand website traffic and usage patterns to improve the user experience.</li>
                     </ul>
-                    <p className="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">You can read more about TelemetryDeck's privacy policy at <a href="https://telemetrydeck.com/privacy" target="_blank" className="text-indigo-500" rel="nofollow">https://telemetrydeck.com/privacy.</a></p>
+                    <p className="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">You can read more about TelemetryDeck's privacy policy at <a href="https://telemetrydeck.com/privacy" target="_blank" className="text-sky-500 dark:text-sky-400 hover:text-sky-500/60 dark:hover:text-sky-400/60"  rel="nofollow">https://telemetrydeck.com/privacy.</a></p>
 
                     <h2 className="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">Third-Party Services</h2>
                     <p className="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">Apart from TelemetryDeck for analytics, this website does not use any third-party services, integrations, or trackers.</p>
@@ -58,7 +58,7 @@ const Privacy = () => {
 
                     <h2 className="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">Contact</h2>
                     
-                    <p className="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">If you have questions or concerns about this privacy policy, please contact: <a href="mailto:trev@trevkillick.dev" className="text-indigo-500" target="_blank">trev@trevkillick.dev</a></p>
+                    <p className="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">If you have questions or concerns about this privacy policy, please contact: <a href="mailto:trev@trevkillick.dev" className="text-sky-500 dark:text-sky-400 hover:text-sky-500/60 dark:hover:text-sky-400/6" target="_blank">trev@trevkillick.dev</a></p>
 
                 </div>
             </div>

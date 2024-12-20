@@ -4,18 +4,21 @@ import React from "react";
 class NavigationItem {
     name: string;
     href: string;
+    showInNavBar: boolean;
 
-    constructor(name: string, href: string) {
+    constructor(name: string, href: string, showInNavBar: boolean = true) {
         this.name = name;
         this.href = href;
+        this.showInNavBar = showInNavBar;
     }
 }
 
 /* Single List of Navigation for the project */
 export const NavigationList: NavigationItem[] = [
-    /*new NavigationItem('Home', '/'),
-    new NavigationItem('Projects', 'projects'),
-    new NavigationItem('About', 'about'),*/
+    new NavigationItem('Home', '/'),
+    new NavigationItem('Projects', '/projects'),
+    new NavigationItem('Privacy', '/privacy', false),
+    /*new NavigationItem('About', 'about'),*/
 ];
 
 /* Social Item Class */

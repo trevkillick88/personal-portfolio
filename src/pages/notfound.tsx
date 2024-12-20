@@ -17,7 +17,7 @@ const NotFound = () => {
         </div>
         <div
             aria-hidden="true"
-            className="absolute dark:hidden inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:-mr-80 lg:-mr-96"
+            className="absolute dark:hidden inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-sky-400/10 ring-1 ring-sky-400 sm:-mr-80 lg:-mr-96"
         />
         <div className="px-6 pt-14 lg:px-8">
             <div className="mx-auto max-w-2xl pt-24 text-center sm:pt-40">

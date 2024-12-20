@@ -5,7 +5,7 @@ import {
     SunIcon,
 } from '@heroicons/react/20/solid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPersonBiking,faPersonRunning,faHouseSignal } from '@fortawesome/free-solid-svg-icons'
+import { faPersonBiking,faPersonRunning,faHouseSignal,faHandHoldingHeart,faCalendarDay,faFlagCheckered } from '@fortawesome/free-solid-svg-icons'
 
 const areas = [
     {
@@ -83,7 +83,7 @@ const stats = [
 const interests = [
     {
         name: 'Running',
-        description: 'There is no better start to a weekend than the 9am park run, even when its time to volunteer.',
+        description: 'There is no better start to a weekend than the 9am park run, regularly running at lunchtime around work and meetings.',
         type: 'FA',
         faIcon: faPersonRunning,
     },
@@ -95,7 +95,7 @@ const interests = [
     },
     {
         name: 'Home Automation',
-        description: 'Terrible when the internet goes down but i do enjoy having Home Assistant set up controlling the house.',
+        description: 'Terrible when the internet goes down but I do enjoy having Home Assistant set up controlling the house.',
         type: 'FA',
         faIcon: faHouseSignal,
     },
@@ -107,7 +107,7 @@ const interests = [
     },
     {
         name: 'AI/ML.',
-        description: 'I have had a long term interest in AI/ML, long before GenAi rose in popularity.',
+        description: 'I have had a long term interest in AI/ML, long before GenAI rose in popularity.',
         type: 'Hero',
         icon: SparklesIcon,
     },
@@ -116,6 +116,24 @@ const interests = [
         description: 'Some weekends, there is nothing better than a cup of tea, slice of cake and a good movie on the sofa with the family.',
         type: 'Hero',
         icon: SunIcon,
+    },
+    {
+        name: 'Charity.',
+        description: 'Multiple half marathons run in aid of Special Effect as well as donations of Christmas gifts to under privileged children at our children\'s primary school.',
+        type: 'FA',
+        faIcon: faHandHoldingHeart,
+    },
+    {
+        name: 'Volunteering.',
+        description: 'ParkRun isn\'t just about the running, I am a regular volunteer at our local event trying to maintain a 10% volunteer/run ratio.',
+        type: 'FA',
+        faIcon: faCalendarDay,
+    },
+    {
+        name: 'MotorSport.',
+        description: 'Shared passion with my youngest son, we love to watch the F1 although he does cheer for the opposite drivers to me.',
+        type: 'FA',
+        faIcon: faFlagCheckered,
     },
 ]
 
@@ -136,7 +154,7 @@ const Home = () => {
             </div>
             <div
                 aria-hidden="true"
-                className="absolute dark:hidden inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:-mr-80 lg:-mr-96"
+                className="absolute dark:hidden inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-sky-400/10 ring-1 ring-sky-400 sm:-mr-80 lg:-mr-96"
             />
             <div className="px-6 pt-14 lg:px-8">
                 <div className="mx-auto max-w-2xl pt-24 text-center sm:pt-40">
@@ -173,8 +191,8 @@ const Home = () => {
                             <p className="mt-8">
                                 Leading a technical team for <strong>{yearsManagingTeam}</strong> years has given me a unique perspective on the industry and the challenges faced by teams. 
                                 I have a proven track record of delivering high-quality projects, and I am always eager to learn and adapt to new challenges. Within the team we have 
-                                won over multiple internal awards for our work and dedication to the projects we have worked on, from employee of the quarter and year for multiple team members, 
-                                to ShipIt day wins. Nurturing and mentoring the team has been a key focus for me, ensuring that the team is always learning and growing in line with their personal development plans.
+                                won multiple internal awards for both our work and our dedication to the projects we have worked on. These include 'Employee of the quarter' and 'Employee of the year' for multiple team members, 
+                                as well as 'ShipIt day' wins. Nurturing and mentoring the team has been a key focus for me, ensuring that the team is always learning and growing in line with their personal development plans and operational objectives.
                             </p>
                         </div>
                     </div>
@@ -196,23 +214,23 @@ const Home = () => {
                         {areas.map((area) => (
                             <div
                                 key={area.name}
-                                className="-m-2 grid grid-cols-1 rounded-[2rem] shadow-[inset_0_0_2px_1px_#ffffff4d] ring-1 ring-black/5 dark:ring-white/10 max-lg:mx-auto max-lg:w-full max-lg:max-w-md"
+                                className="-m-2 grid grid-cols-1 rounded-[2rem] shadow-[inset_0_0_2px_1px_#ffffff4d] ring-1 ring-black/5 dark:shadow-sky-400/20 max-lg:mx-auto max-lg:w-full max-lg:max-w-md"
                             >
-                                <div className="grid grid-cols-1 rounded-[2rem] p-2 shadow-md shadow-black/5  dark:shadow-white/10">
-                                    <div className="rounded-3xl bg-white p-10 pb-9 shadow-2xl ring-1 ring-black/5 dark:bg-gray-900 dark:ring-white/10">
+                                <div className="grid grid-cols-1 rounded-[2rem] p-2 shadow-md shadow-black/5  dark:shadow-sky-400/20">
+                                    <div className="rounded-3xl bg-white p-10 pb-9 shadow-2xl ring-1 ring-black/5 dark:bg-white/5 dark:ring-sky-400/20">
                                         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
                                             {area.name}
                                         </h2>
                                         
                                         <div className="mt-8">
-                                            <h3 className="text-sm font-medium text-indigo-600">{area.skillsLabel}</h3>
+                                            <h3 className="text-base/6 font-medium text-sky-500 dark:text-sky-400">{area.skillsLabel}</h3>
                                             <ul className="mt-1 min-h-[48px]">
-                                                <li className="group flex items-start text-sm/6 text-gray-600 dark:text-gray-300"> {area.skills.join(", ")} </li>                                
+                                                <li className="group flex items-start text-sm text-gray-600 dark:text-gray-300"> {area.skills.join(", ")} </li>                                
                                             </ul>
-                                            <h3 className="text-sm/6 font-medium mt-3 text-indigo-600">Tools Used</h3>
+                                            <h3 className="text-base/6 font-medium mt-3 text-sky-500 dark:text-sky-400">Tools Used</h3>
                                             <ul className="mt-1">
                                                 {area.tools.map((highlight,index) => (
-                                                    <li key={index} className="group flex items-start text-sm/6 text-gray-600 dark:text-gray-300">
+                                                    <li key={index} className="group flex items-start text-sm text-gray-600 dark:text-gray-300">
                                                         {highlight}
                                                     </li>
                                                 ))}
@@ -228,7 +246,7 @@ const Home = () => {
 
             {/* Values section */}
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-2xl lg:mx-0">
+                <div className="mx-auto lg:mx-0">
                     <h2 className="text-pretty text-4xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-5xl">Hobbies & Interests</h2>
                     <p className="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
                         When I'm not immersed in tech, I love spending time with my family, starting the weekend with a ParkRun, or exploring the Chiltern Hills on my electric mountain bike. I'm also a fan of tinkering with home automation projects and finding new ways to combine tech with everyday life—though my family may not always share my enthusiasm when the lights need voice commands!
@@ -239,9 +257,9 @@ const Home = () => {
                         <div key={value.name} className="relative pl-9">
                             <dt className="inline font-semibold text-gray-900 dark:text-white">
                                 {(value.type === "FA" && value.faIcon) ? (
-                                    <FontAwesomeIcon icon={value.faIcon} aria-hidden="true" className="absolute left-1 top-1 size-5 text-indigo-500" />
+                                    <FontAwesomeIcon icon={value.faIcon} aria-hidden="true" className="absolute left-1 top-1 size-5 text-sky-500 dark:text-sky-400" />
                                 ) : (
-                                    value.icon && <value.icon aria-hidden="true" className="absolute left-1 top-1 size-5 text-indigo-500" />
+                                    value.icon && value.type === "Hero" && <value.icon aria-hidden="true" className="absolute left-1 top-1 size-5 text-sky-500 dark:text-sky-400" />
                                 )}
                                 {value.name}
                             </dt>{' '}
@@ -254,23 +272,29 @@ const Home = () => {
             {/* CTA section */}
             <div className="relative isolate -z-10 mt-20">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    <div className="mx-auto flex max-w-2xl flex-col gap-16 bg-white/5 px-6 py-16 ring-1 ring-white/10 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-20 xl:gap-x-20 xl:px-20">
-                        <img
-                            alt="Trev Killick - Lets Connect"
-                            src="./assets/trev.jpg"
-                            className="h-96 w-full flex-none rounded-2xl object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm"
-                        />
-                        <div className="w-full flex-auto">
-                            <h2 className="text-pretty text-4xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
-                                Let's Connect!
-                            </h2>
-                            <p className="mt-6 text-pretty text-lg/8 text-gray-600 dark:text-gray-300">
-                                I'm always excited to collaborate on innovative projects, share ideas, or explore new opportunities. Whether you're looking to discuss AI solutions, software development, or simply want to chat about the latest tech trends, feel free to reach out. Drop me a message via the contact form or connect with me on <a href="https://www.linkedin.com/in/trev-killick/" className="text-indigo-500" target="_blank" rel="nofollow">LinkedIn</a>. I look forward to hearing from you!
-                            </p>
-                            <div className="mt-10 flex">
-                                <a href="mailto:trev@trevkillick.dev" target="_blank" className="text-sm/6 font-semibold text-indigo-500">
-                                    Get in touch <span aria-hidden="true">&rarr;</span>
-                                </a>
+                    <div className="-m-2 rounded-[2rem] shadow-[inset_0_0_2px_1px_#ffffff4d] ring-1 ring-black/5 dark:ring-white/10">
+                        <div className="rounded-[2rem] p-2 shadow-md shadow-black/5 dark:shadow-white/10">
+                            <div className="rounded-3xl bg-white p-10 pb-9 shadow-2xl ring-1 ring-black/5 dark:bg-white/5 dark:ring-white/10">
+                                <div className="mx-auto flex max-w-2xl flex-col gap-16 lg:max-w-none lg:flex-row lg:items-center lg:py-20 xl:gap-x-20 xl:px-20">
+                                    <img
+                                        alt="Trev Killick - Lets Connect"
+                                        src="./assets/trev.jpg"
+                                        className="h-96 w-full flex-none rounded-2xl object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm"
+                                    />
+                                    <div className="w-full flex-auto">
+                                        <h2 className="text-pretty text-4xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
+                                            Let's Connect!
+                                        </h2>
+                                        <p className="mt-6 text-pretty text-lg/8 text-gray-600 dark:text-gray-300">
+                                            I'm always excited to collaborate on innovative projects, share ideas, or explore new opportunities. Whether you're looking to discuss AI solutions, software development, or simply want to chat about the latest tech trends, feel free to reach out. Drop me a message via the contact form or connect with me on <a href="https://www.linkedin.com/in/trev-killick/" className="text-sky-500 dark:text-sky-400 hover:text-sky-500/60 dark:hover:text-sky-400/60" target="_blank" rel="nofollow">LinkedIn</a>. I look forward to hearing from you!
+                                        </p>
+                                        <div className="mt-10 flex">
+                                            <a href="mailto:trev@trevkillick.dev" target="_blank" className="text-sm/6 font-semibold text-sky-500 dark:text-sky-400 hover:text-sky-500/60 dark:hover:text-sky-400/60">
+                                                Get in touch <span aria-hidden="true">&rarr;</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

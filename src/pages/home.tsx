@@ -6,23 +6,8 @@ import {
 } from '@heroicons/react/20/solid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPersonBiking,faPersonRunning,faHouseSignal,faHandHoldingHeart,faCalendarDay,faFlagCheckered } from '@fortawesome/free-solid-svg-icons'
+import { AreaType,StatsType,InterestsType } from '../types/home.tsx'
 
-type AreaType = {
-    id: string;
-    name:string;
-    description: string;
-    alt_description: string;
-    skills: SkillsType[];
-    tools: ToolType[];
-}
-type SkillsType = {
-    id: string;
-    skill: string;
-}
-type ToolType = {
-    id: string;
-    tool: string;
-}
 const areas: AreaType[] = [
     {
         id: 'fe',
@@ -90,14 +75,14 @@ const areas: AreaType[] = [
 const yearsInDev: number = new Date().getFullYear() - new Date(import.meta.env.VITE_DATE_STARTED_DEV).getFullYear();
 const yearsManagingTeam: number = new Date().getFullYear() - new Date(import.meta.env.VITE_DATE_STARTED_MANAGING).getFullYear();
 const yearsInTech: number = new Date().getFullYear() - new Date(import.meta.env.VITE_DATE_STARTED_TECH).getFullYear();
-const stats = [
-    { id:1, label: `${yearsInDev} years in development`, value: new Date(import.meta.env.VITE_DATE_STARTED_DEV).getFullYear() },
+const stats: StatsType[] = [
+    { id:1, label: `${yearsInDev} years in development`, value: new Date(import.meta.env.VITE_DATE_STARTED_DEV).getFullYear().toString() },
     { id:2, label: 'Years managing technical team', value: `${yearsManagingTeam}+` },
     { id:3, label: 'Team awards won', value: '10+' },
     { id:4, label: 'Years working in technology roles', value: `${yearsInTech}` },
 ];
 
-const interests = [
+const interests: InterestsType[] =[
     {
         name: 'Running',
         description: 'There is no better start to a weekend than the 9am park run, regularly running at lunchtime around work and meetings.',

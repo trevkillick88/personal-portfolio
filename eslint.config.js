@@ -9,7 +9,7 @@ import jsxA11y from 'eslint-plugin-jsx-a11y'
 export default tseslint.config(
     { ignores: ['dist', 'build'] },
     {
-        extends: [js.configs.recommended, ...tseslint.configs.recommended, prettier,jsxA11y.flatConfigs.recommended],
+        extends: [js.configs.recommended, ...tseslint.configs.recommended, prettier,jsxA11y.flatConfigs.strict],
         files: ['**/*.{ts,tsx}'],
         languageOptions: {
             ecmaVersion: "latest",
@@ -24,8 +24,7 @@ export default tseslint.config(
             'react-refresh/only-export-components': [
                 'warn',
                 { allowConstantExport: true },
-            ],
-            'jsx-a11y/alt-text': 'error',
+            ]
         },
     },
 )

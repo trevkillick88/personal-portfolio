@@ -61,7 +61,7 @@ export default function NavBar() {
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                     <Menu as="div" className="relative ml-3">
                         <div className=" flex items-center">
-                            <label className="sr-only" htmlFor="label-theme">Theme</label>
+                            <label className="sr-only" id="label-theme" htmlFor="theme-toggle">Theme</label>
                             <MenuButton id='theme-toggle' aria-labelledby='label-theme'>
                                 <span className="dark:hidden">
                                     <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">

@@ -3,5 +3,9 @@ import { getTheme, ThemeContextType } from '../types/theme';
 
 
 /* Context for Theme */
-export const ThemeContext = createContext<ThemeContextType>({ theme: getTheme(), setTheme: () => { } });
-export const useTheme = () => useContext(ThemeContext);
+export const ThemeContext = createContext<ThemeContextType>({
+    theme: getTheme(),
+    setTheme: () => {},
+});
+
+export const useTheme = (): ThemeContextType => useContext(ThemeContext);

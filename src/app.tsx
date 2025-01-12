@@ -1,5 +1,5 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { ReactNode, useLayoutEffect } from 'react'
+import { BrowserRouter, Routes, Route, useLocation  } from "react-router-dom";
 import './css/app.css'
 import NavBar from './components/navbar.tsx'
 import Footer from './components/footer.tsx'
@@ -8,24 +8,64 @@ import NotFound from "./pages/notfound.tsx"
 import Privacy from "./pages/privacy.tsx"
 import Projects from './pages/projects.tsx';
 
-function App() {
+//-- Type interface for children in wrapper
+interface WrapperProps {
+    children: ReactNode;
+}
+//-- 
+const Wrapper: React.FC<WrapperProps> = ({ children }) => {
+    const location = useLocation();
+  
+    useLayoutEffect(() => {
+      // Scroll to the top of the page when the route changes
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }, [location.pathname]);
+  
+    return children;
+};
+
+/**
+ * Main App Function 
+ * @returns {React.ReactElement} - React Element
+ */
+function App():React.ReactElement {
     return (
-        <React.Fragment>
-            <BrowserRouter>
-                <NavBar></NavBar>
-                <main id="content-container" className="relative isolate">
+        <BrowserRouter>
+            <Wrapper >
+                <NavBar />
+
+                <main
+                    className="relative isolate"
+                    id="content-container"
+                >
                     <Routes>
                         <Route>
-                            <Route index element={<Home />} />
-                            <Route path="projects" element={<Projects />} />
-                            <Route path="privacy" element={<Privacy />} />
-                            <Route path="*" element={<NotFound />} />
+                            <Route
+                                element={<Home />}
+                                index
+                            />
+
+                            <Route
+                                element={<Projects />}
+                                path="projects"
+                            />
+
+                            <Route
+                                element={<Privacy />}
+                                path="privacy"
+                            />
+
+                            <Route
+                                element={<NotFound />}
+                                path="*"
+                            />
                         </Route>
                     </Routes>
                 </main>
-                <Footer></Footer>
-            </BrowserRouter>
-        </React.Fragment>
+
+                <Footer />
+            </Wrapper >
+        </BrowserRouter>
     )
 }
 

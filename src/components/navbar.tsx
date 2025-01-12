@@ -52,8 +52,8 @@ export default function NavBar() {
                 </div>
                 {navigation.length > 0 && (
                     <div className="hidden lg:flex lg:gap-x-12">
-                        {navigation.map((item) => item.showInNavBar && (
-                            <Link to={item.href} className={getClassNames(item.href)}>
+                        {navigation.map((item,idx) => item.showInNavBar && (
+                            <Link to={item.href} key={idx} className={getClassNames(item.href)}>
                                 {item.name}
                             </Link>
                         ))}
@@ -135,8 +135,8 @@ export default function NavBar() {
                     <div className="mt-6 flow-root">
                         <div className="-my-6 divide-y divide-gray-500/25">
                             <div className="space-y-2 py-6">
-                                {navigation.map((item) => (
-                                    <Link to={item.href} className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">
+                                {navigation.map((item,idx) => (
+                                    <Link to={item.href} key={idx} className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">
                                         {item.name}
                                     </Link>
                                 ))}

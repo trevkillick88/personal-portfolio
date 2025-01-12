@@ -19,8 +19,8 @@ export default function Footer() {
                     ))}
                 </nav>)}
                 <div className="mt-16 flex justify-center gap-x-10">
-                    {social.map((item) => (
-                        <a key={item.name} href={item.href} className="text-gray-600 dark:text-gray-400 hover:text-sky-500 dark:hover:text-sky-400" title={item.label} aria-label={item.label} target="_blank" rel="nofollow">
+                    {social.map((item,idx) => (
+                        <a key={idx} href={item.href} className="text-gray-600 dark:text-gray-400 hover:text-sky-500 dark:hover:text-sky-400" title={item.label} aria-label={item.label} target="_blank" rel="nofollow">
                             <span className="sr-only">{item.name}</span>
                             <item.icon aria-hidden="true" className="size-6" />
                         </a>

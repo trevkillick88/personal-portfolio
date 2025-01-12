@@ -277,8 +277,10 @@ const Home = () => {
                             <div className="rounded-3xl bg-white p-10 pb-9 shadow-2xl ring-1 ring-black/5 dark:bg-white/5 dark:ring-white/10">
                                 <div className="mx-auto flex max-w-2xl flex-col gap-16 lg:max-w-none lg:flex-row lg:items-center lg:py-20 xl:gap-x-20 xl:px-20">
                                     <img
+                                        width="384px"
+                                        height="384px"
                                         alt="Trev Killick - Lets Connect"
-                                        src="./assets/trev.jpg"
+                                        src="./assets/trev.webp"
                                         className="h-96 w-full flex-none rounded-2xl object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm"
                                     />
                                     <div className="w-full flex-auto">

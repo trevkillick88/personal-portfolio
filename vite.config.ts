@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import Sitemap from 'vite-plugin-sitemap'
+import tailwind from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 import { compression } from 'vite-plugin-compression2'
 import legacy from '@vitejs/plugin-legacy'
@@ -31,11 +32,14 @@ export default defineConfig({
             targets: ['defaults', 'not IE 11'],
         }),
     ],
-    css: { postcss: {
-        plugins: [
-          autoprefixer({}) // add options if needed
-        ],
-      },
-      modules: false },
+    css: { 
+        postcss: {
+            plugins: [
+                tailwind(),
+                autoprefixer({}) // add options if needed
+            ],
+        },
+        modules: false 
+    },
     esbuild: { legalComments: 'none' },
 })

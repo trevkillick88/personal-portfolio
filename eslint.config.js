@@ -24,7 +24,9 @@ export default tseslint.config(
             'react-refresh/only-export-components': [
                 'warn',
                 { allowConstantExport: true },
-            ]
+            ],
+            'jsx-a11y/label-has-associated-control': 'error',
+            'jsx-a11y/control-has-associated-label': 'error',
         },
     },
 )

@@ -53,7 +53,7 @@ const Projects = () => {
                         <div className="lg:pr-4">
                             <div className="max-w-xl text-base/7 text-gray-600 dark:text-gray-300 lg:max-w-lg">
                                 <p>Here are just a few of the technologies I got to explore whilst working on this project, I have dabbled with most in the past but its always a better experience and you learn more to create something from scratch and go through the learning curve getting it to build and deploy to production</p>
-                                <ul role="list" className="mt-8 space-y-8 text-gray-600 dark:text-gray-400">
+                                <ul className="mt-8 space-y-8 text-gray-600 dark:text-gray-400">
                                     <li className="flex gap-x-3">
                                         <FontAwesomeIcon icon={faReact} aria-hidden="true" className="mt-1 size-5 flex-none text-sky-500 dark:text-sky-400" />
                                     <span><strong className="font-semibold text-gray-900 dark:text-white">React.</strong> Initially setup using Vite, I got to grips with a very different way of working in react.</span>

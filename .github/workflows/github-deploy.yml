@@ -1,4 +1,7 @@
 name: GitHub Deploy to TrevKillick.dev
+permissions:
+  contents: read
+  pull-requests: write
 run-name: ${{ github.actor }} is Deploying to Production 🚀
 on: [push,workflow_dispatch]
 jobs:

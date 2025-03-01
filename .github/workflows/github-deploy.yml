@@ -2,7 +2,7 @@ name: GitHub Deploy to TrevKillick.dev
 permissions:
   contents: read
   pull-requests: write
-run-name: ${{ github.actor }} is Deploying to Production 🚀
+run-name: ${{ github.actor }} is Deploying to TrevKillick.dev
 on: [push,workflow_dispatch]
 jobs:
   Explore-GitHub-Actions:
@@ -11,9 +11,6 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-      - name: Create Dist Folder
-        run: |
-          mkdir -p dist/
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -27,7 +24,7 @@ jobs:
           VITE_DATE_STARTED_MANAGING:  ${{ secrets.VITE_DATE_STARTED_MANAGING }}
           VITE_APP_ID:  ${{ secrets.VITE_APP_ID }}
       - name: 📂 Sync files
-        uses: tj-actions/changed-files@c65cd883420fd2eb864698a825fc4162dd94482c # v44
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}

@@ -4,12 +4,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquareGithub,faReact } from '@fortawesome/free-brands-svg-icons'
 import { isDark } from '../types/theme.tsx';
 import { useTheme } from '../context/theme.tsx';
+import { useTelemetryDeck } from "@typedigital/telemetrydeck-react";
+import { useLocation  } from "react-router-dom";
 
 /**
  * Project Page Function
  * @returns {React.ReactElement} - React Element
  */
 function Projects():React.ReactElement {
+    const location = useLocation();
+    const { signal } = useTelemetryDeck();
+    React.useEffect(() => {
+        (async () => {
+        const { pathname } = window.location;
+        await signal("pageview", { component: "Page", path: pathname });
+        })();
+    }, [location,signal]);
     //-- Consume the context provider for updates
     useTheme();
     //-- Use to switch screenplays

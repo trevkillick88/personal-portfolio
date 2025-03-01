@@ -6,6 +6,8 @@ import {
 } from '@heroicons/react/20/solid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPersonBiking,faPersonRunning,faHouseSignal,faHandHoldingHeart,faCalendarDay,faFlagCheckered } from '@fortawesome/free-solid-svg-icons'
+import { useTelemetryDeck } from "@typedigital/telemetrydeck-react";
+import { useLocation  } from "react-router-dom";
 
 type AreaType = {
     id: string;
@@ -154,6 +156,14 @@ const interests = [
  * @returns {React.ReactElement} - React Element
  */
 function Home():React.ReactElement {
+    const location = useLocation();
+    const { signal } = useTelemetryDeck();
+    React.useEffect(() => {
+        (async () => {
+        const { pathname } = window.location;
+        await signal("pageview", { component: "Page", path: pathname });
+        })();
+    }, [location,signal]);
     return (
         <>
             <div

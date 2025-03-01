@@ -55,13 +55,31 @@ export default function NavBar():React.ReactElement {
                         <span className="sr-only">
                             Trev Killick
                         </span>
-                        <img
-                            alt="TrevKillick.dev Logo"
-                            className="h-8 w-auto"
+                        <svg
+                            className="h-8 w-auto text-gray-900 dark:text-white"
+                            fill="currentColor"
                             height="32px"
-                            src="./assets/logo.svg"
+                            version="1.1" 
+                            viewBox="0 0 32 32" 
                             width="38px"
-                        />
+                            x="0px"
+                            xmlSpace="preserve"
+                            xmlns="http://www.w3.org/2000/svg"
+                            y="0px"
+                        >
+                            <polygon
+                                fill="currentColor"
+                                points="22,6 22,10 28,16 22,22 22,26 32,16"
+                            />
+                            <polygon
+                                fill="currentColor"
+                                points="10,10 10,6 0,16 10,26 10,22 4,16"
+                            />
+                            <polygon
+                                fill="currentColor"
+                                points="18,12 10,20 14,20 22,12"
+                            />
+                        </svg>
                     </Link>
                 </div>
 

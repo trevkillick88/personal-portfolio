@@ -41,7 +41,7 @@ const areas: AreaType[] = [
             {id:'fe-tool-3', text:'Bootstrap'},
             {id:'fe-tool-4', text:'TailwindCSS'},
             {id:'fe-tool-5', text:'Figma'},
-            {id:'fe-tool-6', text: 'NodeJS'}
+            {id:'fe-tool-6', text:'NodeJS'}
         ]
     },
     {
@@ -56,7 +56,7 @@ const areas: AreaType[] = [
             {id:'be-skill-4', text:'JavaScript'}
         ],
         tools:[
-            {id:'be-tool-1', text:'Git'},
+            {id:'be-tool-1', text:'GitHub'},
             {id:'be-tool-2', text:'Google Cloud Platform'},
             {id:'be-tool-3', text:'Azure Cloud'},
             {id:'be-tool-4', text:'Docker'},

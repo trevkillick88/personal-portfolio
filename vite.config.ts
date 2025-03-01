@@ -12,6 +12,7 @@ import basicSsl from '@vitejs/plugin-basic-ssl'
 // https://vite.dev/config/
 export default defineConfig({
     build: {
+        chunkSizeWarningLimit:700,
         rollupOptions: {
             treeshake: true  // Ensure tree shaking is enabled
         },
@@ -24,6 +25,8 @@ export default defineConfig({
     },
     plugins: [basicSsl(), react(), Sitemap({ 
         hostname: 'https://trevkillick.dev',
+        readable:true,
+        outDir: './dist',
         exclude: ['/assets'] 
     }), ViteImageOptimizer({
         /* pass your config */

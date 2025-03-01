@@ -181,13 +181,13 @@ function Home():React.ReactElement {
                     </h1>
 
                     <p className="mt-8 text-pretty text-lg font-medium text-gray-600 dark:text-gray-400 sm:text-xl/8">
-                        Experienced AI Practice Lead and Software Engineer with 
+                        Experienced Software Engineer with 
                         {' '}
 
                         {yearsInDev}
 
                         {' '}
-                        years of expertise in AI, Front End Development, Backend Integrations, SaaS, and cloud technologies.
+                        years of expertise in Development most recently focusing on AI but experience with; Front End Development, Backend Integrations, SaaS, and cloud technologies.
                     </p>
                 </div>
             </div>

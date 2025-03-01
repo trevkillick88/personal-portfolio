@@ -15,12 +15,10 @@ interface WrapperProps {
 //-- 
 const Wrapper: React.FC<WrapperProps> = ({ children }) => {
     const location = useLocation();
-  
     useLayoutEffect(() => {
       // Scroll to the top of the page when the route changes
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }, [location.pathname]);
-  
     return children;
 };
 

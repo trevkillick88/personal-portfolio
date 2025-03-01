@@ -55,12 +55,11 @@ export default function NavBar():React.ReactElement {
                         <span className="sr-only">
                             Trev Killick
                         </span>
-
                         <img
-                            alt="Tailwind Logo - Placeholder Logo"
+                            alt="TrevKillick.dev Logo"
                             className="h-8 w-auto"
                             height="32px"
-                            src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=700"
+                            src="./assets/logo.svg"
                             width="38px"
                         />
                     </Link>

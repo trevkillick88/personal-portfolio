@@ -1,3 +1,4 @@
+import { sentryVitePlugin } from "@sentry/vite-plugin";
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
@@ -6,6 +7,7 @@ import tailwind from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 import { compression } from 'vite-plugin-compression2'
 import legacy from '@vitejs/plugin-legacy'
+import basicSsl from '@vitejs/plugin-basic-ssl'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -17,21 +19,20 @@ export default defineConfig({
     },
     define: {
         'VITE_APP_VERSION': JSON.stringify(process.env.npm_package_version),
+        'VITE_APP_ID': process.env.VITE_APP_ID,
+
     },
-    plugins: [
-        react(),
-        Sitemap({ 
-            hostname: 'https://trevkillick.dev',
-            exclude: ['/assets'] 
-        }),
-        ViteImageOptimizer({
-            /* pass your config */
-        }),
-        compression(),
-        legacy({
-            targets: ['defaults', 'not IE 11'],
-        }),
-    ],
+    plugins: [basicSsl(), react(), Sitemap({ 
+        hostname: 'https://trevkillick.dev',
+        exclude: ['/assets'] 
+    }), ViteImageOptimizer({
+        /* pass your config */
+    }), compression(), legacy({
+        targets: ['defaults', 'not IE 11'],
+    }), sentryVitePlugin({
+        org: "trev-killick",
+        project: "personal-portfolio"
+    })],
     css: { 
         postcss: {
             plugins: [

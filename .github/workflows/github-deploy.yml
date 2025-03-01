@@ -18,6 +18,7 @@ jobs:
       - run: npm install
       - run: npm run build
         env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           VITE_DATE_STARTED_TECH:  ${{ secrets.VITE_DATE_STARTED_TECH }}
           VITE_DATE_STARTED_DEV:  ${{ secrets.VITE_DATE_STARTED_DEV }}
           VITE_DATE_STARTED_MANAGING:  ${{ secrets.VITE_DATE_STARTED_MANAGING }}

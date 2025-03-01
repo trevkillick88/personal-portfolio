@@ -32,7 +32,7 @@ function Privacy():React.ReactElement {
                     </h1>
 
                     <p className="mt-8 text-pretty text-lg font-medium text-gray-600 dark:text-gray-400 sm:text-xl/8">
-                        Last updated on December 20, 2024
+                        Last updated on March 1, 2025
                     </p>
                 </div>
             </div>
@@ -139,11 +139,33 @@ function Privacy():React.ReactElement {
                     </p>
 
                     <h2 className="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">
+                        Error Reporting
+                    </h2>
+
+                    <p className="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
+                        We use Sentry.io to collect anonymized crash or error data. This helps us understand how to reproduce any error from  using our site and allow us to fix them quicker.
+                    </p>
+
+                    <p className="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
+                        You can read more about Sentry&apos;s privacy policy at
+                        {' '}
+                        <a
+                            className="text-sky-500 dark:text-sky-400 hover:text-sky-500/60 dark:hover:text-sky-400/60"
+                            href="https://sentry.io/privacy/"
+                            rel="noreferrer nofollow"
+                            target="_blank"
+                        >
+                            https://sentry.io/privacy/.
+                        </a>
+                    </p>
+
+
+                    <h2 className="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">
                         Third-Party Services
                     </h2>
 
                     <p className="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
-                        Apart from TelemetryDeck for analytics, this website does not use any third-party services, integrations, or trackers.
+                        Apart from TelemetryDeck for analytics and Sentry.io for error reporting, this website does not use any third-party services, integrations, or trackers.
                     </p>
 
                     <h2 className="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">

@@ -187,7 +187,7 @@ export default function NavBar():React.ReactElement {
                         >
                             <MenuItem key="light" >
                                 <div
-                                    className={theme === ThemeStyle.Light ? 'py-1 px-2 flex items-center cursor-pointer data-[focus]:bg-slate-50 dark:data-[focus]:bg-slate-600/30 text-sky-500' : 'py-1 px-2 flex items-center data-[focus]:bg-slate-50 dark:data-[focus]:bg-slate-600/30'}
+                                    className={theme === ThemeStyle.Light ? 'py-1 px-2 flex items-center cursor-pointer data-focus:bg-slate-50 dark:data-focus:bg-slate-600/30 text-sky-500' : 'py-1 px-2 flex items-center data-focus:bg-slate-50 dark:data-focus:bg-slate-600/30'}
                                     onClick={handleSetTheme(ThemeStyle.Light)}
                                     onKeyDown={handleSetTheme(ThemeStyle.Light)}
                                     role="button"
@@ -217,7 +217,7 @@ export default function NavBar():React.ReactElement {
 
                             <MenuItem>
                                 <div
-                                    className={theme === ThemeStyle.Dark ? 'py-1 px-2 flex items-center cursor-pointer data-[focus]:bg-slate-50 dark:data-[focus]:bg-slate-600/30 text-sky-500' : 'py-1 px-2 flex items-center data-[focus]:bg-slate-50 dark:data-[focus]:bg-slate-600/30'}
+                                    className={theme === ThemeStyle.Dark ? 'py-1 px-2 flex items-center cursor-pointer data-focus:bg-slate-50 dark:data-focus:bg-slate-600/30 text-sky-500' : 'py-1 px-2 flex items-center data-focus:bg-slate-50 dark:data-focus:bg-slate-600/30'}
                                     onClick={handleSetTheme(ThemeStyle.Dark)}
                                     onKeyDown={handleSetTheme(ThemeStyle.Dark)}
                                     role="button"
@@ -253,7 +253,7 @@ export default function NavBar():React.ReactElement {
 
                             <MenuItem>
                                 <div
-                                    className={theme === ThemeStyle.System ? 'py-1 px-2 flex items-center cursor-pointer data-[focus]:bg-slate-50 dark:data-[focus]:bg-slate-600/30 text-sky-500' : 'py-1 px-2 flex items-center cursor-pointer  data-[focus]:bg-slate-50 dark:data-[focus]:bg-slate-600/30'}
+                                    className={theme === ThemeStyle.System ? 'py-1 px-2 flex items-center cursor-pointer data-focus:bg-slate-50 dark:data-focus:bg-slate-600/30 text-sky-500' : 'py-1 px-2 flex items-center cursor-pointer  data-focus:bg-slate-50 dark:data-focus:bg-slate-600/30'}
                                     onClick={handleSetTheme(ThemeStyle.System)}
                                     onKeyDown={handleSetTheme(ThemeStyle.System)}
                                     role="button"

@@ -1,20 +1,10 @@
 import React from "react";
-import { useTelemetryDeck } from "@typedigital/telemetrydeck-react";
-import { useLocation  } from "react-router-dom";
 
 /**
  * About Page Function
  * @returns {React.ReactElement} - React Element
  */
 function About():React.ReactElement {
-    const location = useLocation();
-    const { signal } = useTelemetryDeck();
-    React.useEffect(() => {
-        (async () => {
-        const { pathname } = window.location;
-        await signal("pageview", { component: "Page", path: pathname });
-        })();
-    }, [location,signal]);
     return (
         <div className="relative isolate -z-10">
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-14">

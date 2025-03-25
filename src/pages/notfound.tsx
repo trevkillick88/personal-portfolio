@@ -1,21 +1,11 @@
 
 import React from "react";
-import { useTelemetryDeck } from "@typedigital/telemetrydeck-react";
-import { useLocation  } from "react-router-dom";
 
 /**
  * NotFound Page Function
  * @returns {React.ReactElement} - React Element
  */
 function NotFound():React.ReactElement {
-    const location = useLocation();
-    const { signal } = useTelemetryDeck();
-    React.useEffect(() => {
-        (async () => {
-        const { pathname } = window.location;
-        await signal("pageview", { component: "Page", path: pathname });
-        })();
-    }, [location,signal]);
     return (
         <>
             <div

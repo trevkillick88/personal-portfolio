@@ -6,8 +6,6 @@ import {
 } from '@heroicons/react/20/solid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPersonBiking,faPersonRunning,faHouseSignal,faHandHoldingHeart,faCalendarDay,faFlagCheckered } from '@fortawesome/free-solid-svg-icons'
-import { useTelemetryDeck } from "@typedigital/telemetrydeck-react";
-import { useLocation  } from "react-router-dom";
 
 type AreaType = {
     id: string;
@@ -43,7 +41,7 @@ const areas: AreaType[] = [
             {id:'fe-tool-3', text:'Bootstrap'},
             {id:'fe-tool-4', text:'TailwindCSS'},
             {id:'fe-tool-5', text:'Figma'},
-            {id:'fe-tool-6', text:'NodeJS'}
+            {id:'fe-tool-6', text: 'NodeJS'}
         ]
     },
     {
@@ -58,7 +56,7 @@ const areas: AreaType[] = [
             {id:'be-skill-4', text:'JavaScript'}
         ],
         tools:[
-            {id:'be-tool-1', text:'GitHub'},
+            {id:'be-tool-1', text:'Git'},
             {id:'be-tool-2', text:'Google Cloud Platform'},
             {id:'be-tool-3', text:'Azure Cloud'},
             {id:'be-tool-4', text:'Docker'},
@@ -156,14 +154,6 @@ const interests = [
  * @returns {React.ReactElement} - React Element
  */
 function Home():React.ReactElement {
-    const location = useLocation();
-    const { signal } = useTelemetryDeck();
-    React.useEffect(() => {
-        (async () => {
-        const { pathname } = window.location;
-        await signal("pageview", { component: "Page", path: pathname });
-        })();
-    }, [location,signal]);
     return (
         <>
             <div
@@ -191,13 +181,13 @@ function Home():React.ReactElement {
                     </h1>
 
                     <p className="mt-8 text-pretty text-lg font-medium text-gray-600 dark:text-gray-400 sm:text-xl/8">
-                        Experienced Software Engineer with 
+                        Experienced AI Practice Lead and Software Engineer with 
                         {' '}
 
                         {yearsInDev}
 
                         {' '}
-                        years of expertise in Development most recently focusing on AI but experience with; Front End Development, Backend Integrations, SaaS, and cloud technologies.
+                        years of expertise in AI, Front End Development, Backend Integrations, SaaS, and cloud technologies.
                     </p>
                 </div>
             </div>

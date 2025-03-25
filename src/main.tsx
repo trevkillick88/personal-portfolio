@@ -3,12 +3,6 @@ import App from './app.tsx'
 import ErrorBoundary from "./components/errorboundry.tsx"
 import  { ThemeProvider } from './theme.tsx'
 import * as Sentry from "@sentry/react";
-import {
-    TelemetryDeckProvider,
-    createTelemetryDeck,
-} from "@typedigital/telemetrydeck-react";
-
-const td = createTelemetryDeck({ appID: '%VITE_APP_ID%', clientUser: "anonymous" });
 
 Sentry.init({
     dsn: "https://464223fe3668387613f4f1e37dc3a3f7@o4508902300123136.ingest.de.sentry.io/4508902301499472",
@@ -28,13 +22,11 @@ const container = document.getElementById('app-container');
 
 if (container) {
     createRoot(container).render(
-        <TelemetryDeckProvider telemetryDeck={td}>
-            <ErrorBoundary>
-                <ThemeProvider>
-                    <App />
-                </ThemeProvider>
-            </ErrorBoundary>
-        </TelemetryDeckProvider>,
+        <ErrorBoundary>
+            <ThemeProvider>
+                <App />
+            </ThemeProvider>
+        </ErrorBoundary>,
     );
 } else {
     console.error('App container not found');

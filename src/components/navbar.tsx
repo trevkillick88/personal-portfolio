@@ -55,13 +55,31 @@ export default function NavBar():React.ReactElement {
                         <span className="sr-only">
                             Trev Killick
                         </span>
-                        <img
-                            alt="TrevKillick.dev Logo"
-                            className="h-8 w-auto"
-                            height="32px"
-                            src="./assets/logo.svg"
-                            width="38px"
-                        />
+                        <svg 
+                            className="h-8 w-auto text-gray-400 dark:text-white"
+                            id="Layer_1"
+                            version="1.1"
+                            viewBox="0 0 105.2 97.8"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <g>
+                                <polygon
+                                    className="st2"
+                                    fill="#ff8200"
+                                    points="54.3 38.5 54.3 38.5 68.1 48.9 105.2 20.8 105.2 0 54.3 38.5"
+                                />
+                                <polygon
+                                    className="st0"
+                                    fill="currentColor"
+                                    points="60.5 14.7 73.4 4.8 0 4.8 0 19.4 21.1 19.4 21.1 92.9 36.7 92.9 36.7 19.4 54.3 19.4 60.5 14.7"
+                                />
+                            </g>
+                            <polygon
+                                className="st1"
+                                fill="#b94700"
+                                points="105.2 97.8 54.3 59.3 54.3 38.5 105.2 77 105.2 97.8"
+                            />
+                        </svg>
                     </Link>
                 </div>
 
@@ -289,7 +307,7 @@ export default function NavBar():React.ReactElement {
                             <img
                                 alt=""
                                 className="h-8 w-auto"
-                                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
+                                src="./assets/logo.svg"
                             />
                         </Link>
 

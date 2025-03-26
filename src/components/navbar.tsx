@@ -22,9 +22,9 @@ export default function NavBar():React.ReactElement {
     //-- Active class for navigation
     const getClassNames = (href: string) => {
         if(location.pathname === href){
-            return 'p-2 text-sm/6 font-semibold text-grey-900  dark:text-white border-b-2 border-b-2 border-sky-500';
+            return 'p-2 text-sm/6 font-semibold text-grey-900 dark:text-white border-b-2 border-b-2 border-sky-500';
         }else{
-            return 'p-2 text-sm/6 font-semibold text-grey-900  dark:text-white border-b-2 border-transparent hover:border-b-2 hover:border-sky-500';
+            return 'p-2 text-sm/6 font-semibold text-grey-900 dark:text-white border-b-2 border-transparent hover:border-b-2 hover:border-sky-500';
         }     
     }
 
@@ -306,7 +306,7 @@ export default function NavBar():React.ReactElement {
             >
                 <div className="fixed inset-0 z-10" />
 
-                <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+                <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white dark:bg-slate-800 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-sky-500/50 dark:sm:ring-white/10">
                     <div className="flex items-center justify-between">
                         <Link
                             className="-m-1.5 p-1.5"
@@ -344,7 +344,7 @@ export default function NavBar():React.ReactElement {
                             <div className="space-y-2 py-6">
                                 {navigation.map((item) => (
                                     <Link
-                                        className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800"
+                                        className="-mx-3 block px-3 py-2 text-base/7 font-semibold text-grey-900 dark:text-white border-b-2 border-transparent hover:border-b-2 hover:border-sky-500"
                                         key={item.name}
                                         to={item.href}
                                     >

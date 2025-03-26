@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useEffect,Fragment } from "react";
 import { Dialog, DialogPanel, Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useTheme } from '../context/theme.tsx';
@@ -40,7 +40,12 @@ export default function NavBar():React.ReactElement {
     const handleMobileMenuClose = () =>(ev: React.SyntheticEvent) => {
         ev.preventDefault();
         setMobileMenuOpen(false);
-    };
+    };  
+
+    //-- Close Menu on change
+    useEffect(() => {
+        setMobileMenuOpen(false);
+    }, [location]);
     return (
         <header className="absolute inset-x-0 top-0 z-50">
             <nav
@@ -83,22 +88,23 @@ export default function NavBar():React.ReactElement {
                     </Link>
                 </div>
 
-                <div className="flex lg:hidden">
-                    <button
-                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400"
-                        onClick={handleMobileMenuToggle()}
-                        type="button"
-                    >
-                        <span className="sr-only">
-                            Open main menu
-                        </span>
+                { !mobileMenuOpen ? 
+                    <div className="flex lg:hidden">
+                        <button
+                            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400 cursor-pointer"
+                            onClick={handleMobileMenuToggle()}
+                            type="button"
+                        >
+                            <span className="sr-only">
+                                Open main menu
+                            </span>
 
-                        <Bars3Icon
-                            aria-hidden="true"
-                            className="size-6"
-                        />
-                    </button>
-                </div>
+                            <Bars3Icon
+                                aria-hidden="true"
+                                className="size-6"
+                            />
+                        </button>
+                    </div> : null }
 
                 {navigation.length > 0 && (
                     <div className="hidden lg:flex lg:gap-x-12">
@@ -124,60 +130,66 @@ export default function NavBar():React.ReactElement {
                                 htmlFor="theme-toggle"
                                 id="label-theme"
                             >
-                                Theme
+                                Theme Selector
                             </label>
 
                             <MenuButton
-                                aria-labelledby='label-theme'
-                                id='theme-toggle'
+                                as={Fragment}
                             >
-                                <span className="dark:hidden">
-                                    <svg
-                                        className="w-6 h-6"
-                                        fill="none"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            className="fill-sky-400/20 stroke-sky-500"
-                                            d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                                        />
+                                <button
+                                    aria-labelledby='label-theme'
+                                    className="cursor-pointer"
+                                    id='theme-toggle'
+                                    type="button"
+                                >
+                                    <span className="dark:hidden">
+                                        <svg
+                                            className="w-6 h-6"
+                                            fill="none"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                className="fill-sky-400/20 stroke-sky-500"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                                            />
 
-                                        <path
-                                            className="stroke-sky-500"
-                                            d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836"
-                                        />
-                                    </svg>
-                                </span>
+                                            <path
+                                                className="stroke-sky-500"
+                                                d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836"
+                                            />
+                                        </svg>
+                                    </span>
 
-                                <span className="hidden dark:inline">
-                                    <svg
-                                        className="w-6 h-6"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            className="fill-sky-400/20"
-                                            clipRule="evenodd"
-                                            d="M17.715 15.15A6.5 6.5 0 0 1 9 6.035C6.106 6.922 4 9.645 4 12.867c0 3.94 3.153 7.136 7.042 7.136 3.101 0 5.734-2.032 6.673-4.853Z"
-                                            fillRule="evenodd"
-                                        />
+                                    <span className="hidden dark:inline">
+                                        <svg
+                                            className="w-6 h-6"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                className="fill-sky-400/20"
+                                                clipRule="evenodd"
+                                                d="M17.715 15.15A6.5 6.5 0 0 1 9 6.035C6.106 6.922 4 9.645 4 12.867c0 3.94 3.153 7.136 7.042 7.136 3.101 0 5.734-2.032 6.673-4.853Z"
+                                                fillRule="evenodd"
+                                            />
 
-                                        <path
-                                            className="fill-sky-500"
-                                            d="m17.715 15.15.95.316a1 1 0 0 0-1.445-1.185l.495.869ZM9 6.035l.846.534a1 1 0 0 0-1.14-1.49L9 6.035Zm8.221 8.246a5.47 5.47 0 0 1-2.72.718v2a7.47 7.47 0 0 0 3.71-.98l-.99-1.738Zm-2.72.718A5.5 5.5 0 0 1 9 9.5H7a7.5 7.5 0 0 0 7.5 7.5v-2ZM9 9.5c0-1.079.31-2.082.845-2.93L8.153 5.5A7.47 7.47 0 0 0 7 9.5h2Zm-4 3.368C5 10.089 6.815 7.75 9.292 6.99L8.706 5.08C5.397 6.094 3 9.201 3 12.867h2Zm6.042 6.136C7.718 19.003 5 16.268 5 12.867H3c0 4.48 3.588 8.136 8.042 8.136v-2Zm5.725-4.17c-.81 2.433-3.074 4.17-5.725 4.17v2c3.552 0 6.553-2.327 7.622-5.537l-1.897-.632Z"
-                                        />
+                                            <path
+                                                className="fill-sky-500"
+                                                d="m17.715 15.15.95.316a1 1 0 0 0-1.445-1.185l.495.869ZM9 6.035l.846.534a1 1 0 0 0-1.14-1.49L9 6.035Zm8.221 8.246a5.47 5.47 0 0 1-2.72.718v2a7.47 7.47 0 0 0 3.71-.98l-.99-1.738Zm-2.72.718A5.5 5.5 0 0 1 9 9.5H7a7.5 7.5 0 0 0 7.5 7.5v-2ZM9 9.5c0-1.079.31-2.082.845-2.93L8.153 5.5A7.47 7.47 0 0 0 7 9.5h2Zm-4 3.368C5 10.089 6.815 7.75 9.292 6.99L8.706 5.08C5.397 6.094 3 9.201 3 12.867h2Zm6.042 6.136C7.718 19.003 5 16.268 5 12.867H3c0 4.48 3.588 8.136 8.042 8.136v-2Zm5.725-4.17c-.81 2.433-3.074 4.17-5.725 4.17v2c3.552 0 6.553-2.327 7.622-5.537l-1.897-.632Z"
+                                            />
 
-                                        <path
-                                            className="fill-sky-500"
-                                            clipRule="evenodd"
-                                            d="M17 3a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 1 1 0 2 2 2 0 0 0-2 2 1 1 0 1 1-2 0 2 2 0 0 0-2-2 1 1 0 1 1 0-2 2 2 0 0 0 2-2 1 1 0 0 1 1-1Z"
-                                            fillRule="evenodd"
-                                        />
-                                    </svg>
-                                </span>
+                                            <path
+                                                className="fill-sky-500"
+                                                clipRule="evenodd"
+                                                d="M17 3a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 1 1 0 2 2 2 0 0 0-2 2 1 1 0 1 1-2 0 2 2 0 0 0-2-2 1 1 0 1 1 0-2 2 2 0 0 0 2-2 1 1 0 0 1 1-1Z"
+                                                fillRule="evenodd"
+                                            />
+                                        </svg>
+                                    </span>
+                                </button>
                             </MenuButton>
                         </div>
 
@@ -187,7 +199,7 @@ export default function NavBar():React.ReactElement {
                         >
                             <MenuItem key="light" >
                                 <div
-                                    className={theme === ThemeStyle.Light ? 'py-1 px-2 flex items-center cursor-pointer data-focus:bg-slate-50 dark:data-focus:bg-slate-600/30 text-sky-500' : 'py-1 px-2 flex items-center data-focus:bg-slate-50 dark:data-focus:bg-slate-600/30'}
+                                    className={theme === ThemeStyle.Light ? 'py-1 px-2 flex items-center cursor-pointer data-[focus]:bg-slate-50 dark:data-[focus]:bg-slate-600/30 text-sky-500' : 'py-1 px-2 flex items-center data-[focus]:bg-slate-50 dark:data-[focus]:bg-slate-600/30'}
                                     onClick={handleSetTheme(ThemeStyle.Light)}
                                     onKeyDown={handleSetTheme(ThemeStyle.Light)}
                                     role="button"
@@ -217,7 +229,7 @@ export default function NavBar():React.ReactElement {
 
                             <MenuItem>
                                 <div
-                                    className={theme === ThemeStyle.Dark ? 'py-1 px-2 flex items-center cursor-pointer data-focus:bg-slate-50 dark:data-focus:bg-slate-600/30 text-sky-500' : 'py-1 px-2 flex items-center data-focus:bg-slate-50 dark:data-focus:bg-slate-600/30'}
+                                    className={theme === ThemeStyle.Dark ? 'py-1 px-2 flex items-center cursor-pointer data-[focus]:bg-slate-50 dark:data-[focus]:bg-slate-600/30 text-sky-500' : 'py-1 px-2 flex items-center data-[focus]:bg-slate-50 dark:data-[focus]:bg-slate-600/30'}
                                     onClick={handleSetTheme(ThemeStyle.Dark)}
                                     onKeyDown={handleSetTheme(ThemeStyle.Dark)}
                                     role="button"
@@ -253,7 +265,7 @@ export default function NavBar():React.ReactElement {
 
                             <MenuItem>
                                 <div
-                                    className={theme === ThemeStyle.System ? 'py-1 px-2 flex items-center cursor-pointer data-focus:bg-slate-50 dark:data-focus:bg-slate-600/30 text-sky-500' : 'py-1 px-2 flex items-center cursor-pointer  data-focus:bg-slate-50 dark:data-focus:bg-slate-600/30'}
+                                    className={theme === ThemeStyle.System ? 'py-1 px-2 flex items-center cursor-pointer data-[focus]:bg-slate-50 dark:data-[focus]:bg-slate-600/30 text-sky-500' : 'py-1 px-2 flex items-center cursor-pointer  data-[focus]:bg-slate-50 dark:data-[focus]:bg-slate-600/30'}
                                     onClick={handleSetTheme(ThemeStyle.System)}
                                     onKeyDown={handleSetTheme(ThemeStyle.System)}
                                     role="button"
@@ -312,7 +324,7 @@ export default function NavBar():React.ReactElement {
                         </Link>
 
                         <button
-                            className="-m-2.5 rounded-md p-2.5 text-gray-400"
+                            className="-m-2.5 rounded-md p-2.5 text-gray-400 cursor-pointer"
                             onClick={handleMobileMenuClose()}
                             type="button"
                         >

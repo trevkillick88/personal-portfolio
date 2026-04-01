@@ -30,3 +30,5 @@ build/
 package-lock.json
 .env
 node_modules
+# Sentry Config File
+.env.sentry-build-plugin

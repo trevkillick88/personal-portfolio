@@ -6,7 +6,10 @@ import {
 } from '@heroicons/react/20/solid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPersonBiking,faPersonRunning,faHouseSignal,faHandHoldingHeart,faCalendarDay,faFlagCheckered } from '@fortawesome/free-solid-svg-icons'
-import { AreaType,StatsType,InterestsType } from '../types/home.tsx'
+import { AreaType, StatsType, InterestsType } from '../types/home.tsx'
+
+import { useTelemetryDeck } from "@typedigital/telemetrydeck-react";
+import { useLocation  } from "react-router-dom";
 
 const areas: AreaType[] = [
     {
@@ -15,22 +18,22 @@ const areas: AreaType[] = [
         description: 'Everything you need to get started.',
         alt_description:'Languages & Frameworks',
         skills: [
-            {id:'fe-skill-1', skill:'JavaScript'},
-            {id:'fe-skill-2', skill:'TypeScript'},
-            {id:'fe-skill-3', skill:'PHP'},
-            {id:'fe-skill-4', skill:'CSS'},
-            {id:'fe-skill-5', skill:'AngularJS'},
-            {id:'fe-skill-6', skill:'JQuery'},
-            {id:'fe-skill-7', skill:'Petite Vue'},
-            {id:'fe-skill-8', skill:'React'}
+            {id:'fe-skill-1', text:'JavaScript'},
+            {id:'fe-skill-2', text:'TypeScript'},
+            {id:'fe-skill-3', text:'PHP'},
+            {id:'fe-skill-4', text:'CSS'},
+            {id:'fe-skill-5', text:'AngularJS'},
+            {id:'fe-skill-6', text:'JQuery'},
+            {id:'fe-skill-7', text:'Petite Vue'},
+            {id:'fe-skill-8', text:'React'}
         ],
         tools:[
-            {id:'fe-tool-1', tool:'VSCode'},
-            {id:'fe-tool-2', tool:'SVN'},
-            {id:'fe-tool-3', tool:'Bootstrap'},
-            {id:'fe-tool-4', tool:'TailwindCSS'},
-            {id:'fe-tool-5', tool:'Figma'},
-            {id:'fe-tool-6', tool: 'NodeJS'}
+            {id:'fe-tool-1', text:'VSCode'},
+            {id:'fe-tool-2', text:'SVN'},
+            {id:'fe-tool-3', text:'Bootstrap'},
+            {id:'fe-tool-4', text:'TailwindCSS'},
+            {id:'fe-tool-5', text:'Figma'},
+            {id:'fe-tool-6', text:'NodeJS'}
         ]
     },
     {
@@ -39,19 +42,19 @@ const areas: AreaType[] = [
         description: 'All the extras for your growing team.',
         alt_description:'Languages',
         skills: [
-            {id:'be-skill-1', skill:'Python'},
-            {id:'be-skill-2', skill:'GoLang'},
-            {id:'be-skill-3', skill:'C#'},
-            {id:'be-skill-4', skill:'JavaScript'}
+            {id:'be-skill-1', text:'Python'},
+            {id:'be-skill-2', text:'GoLang'},
+            {id:'be-skill-3', text:'C#'},
+            {id:'be-skill-4', text:'JavaScript'}
         ],
         tools:[
-            {id:'be-tool-1', tool:'Git'},
-            {id:'be-tool-2', tool:'Google Cloud Platform'},
-            {id:'be-tool-3', tool:'Azure Cloud'},
-            {id:'be-tool-4', tool:'Docker'},
-            {id:'be-tool-5', tool:'Kubernetes'},
-            {id:'be-tool-6', tool:'Jupyter Notebook'},
-            {id:'be-tool-7', tool:'Unix Shell'},
+            {id:'be-tool-1', text:'GitHub'},
+            {id:'be-tool-2', text:'Google Cloud Platform'},
+            {id:'be-tool-3', text:'Azure Cloud'},
+            {id:'be-tool-4', text:'Docker'},
+            {id:'be-tool-5', text:'Kubernetes'},
+            {id:'be-tool-6', text:'Jupyter Notebook'},
+            {id:'be-tool-7', text:'Unix Shell'},
         ]
     },
     {
@@ -60,14 +63,14 @@ const areas: AreaType[] = [
         description: 'Added flexibility at scale.',
         alt_description:'Skills',
         skills: [
-            {id:'m-skill-1', skill:'Public Speaking'},
-            {id:'m-skill-2', skill:'Product Management'},
-            {id:'m-skill-3', skill:'Digital Marketing'}
+            {id:'m-skill-1', text:'Public Speaking'},
+            {id:'m-skill-2', text:'Product Management'},
+            {id:'m-skill-3', text:'Digital Marketing'}
         ],
         tools: [
-            {id:'m-tool-1', tool:'Adobe Illustrator'},
-            {id:'m-tool-2', tool:'Adobe Premier Pro'},
-            {id:'m-tool-3', tool:'HubSpot'}  
+            {id:'m-tool-1', text:'Adobe Illustrator'},
+            {id:'m-tool-2', text:'Adobe Premier Pro'},
+            {id:'m-tool-3', text:'HubSpot'}  
         ],
     },
 ];
@@ -144,6 +147,14 @@ const interests: InterestsType[] =[
  * @returns {React.ReactElement} - React Element
  */
 function Home():React.ReactElement {
+    const location = useLocation();
+    const { signal } = useTelemetryDeck();
+    React.useEffect(() => {
+        (async () => {
+        const { pathname } = window.location;
+        await signal("pageview", { component: "Page", path: pathname });
+        })();
+    }, [location,signal]);
     return (
         <>
             <div
@@ -151,10 +162,10 @@ function Home():React.ReactElement {
                 className="absolute inset-x-0 top-4 -z-10 flex transform-gpu justify-center overflow-hidden blur-3xl"
             >
                 <div
-                    className="aspect-[1108/632] w-[69.25rem] flex-none bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-25"
+                    className="aspect-1108/632 w-[69.25rem] flex-none bg-linear-to-r from-[#80caff] to-[#4f46e5] opacity-25"
                     style={{
                         clipPath:
-                           'polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)',
+                        'polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)',
                     }}
                 />
             </div>
@@ -171,13 +182,13 @@ function Home():React.ReactElement {
                     </h1>
 
                     <p className="mt-8 text-pretty text-lg font-medium text-gray-600 dark:text-gray-400 sm:text-xl/8">
-                        Experienced AI Practice Lead and Software Engineer with 
+                        Experienced Software Engineer with 
                         {' '}
 
                         {yearsInDev}
 
                         {' '}
-                        years of expertise in AI, Front End Development, Backend Integrations, SaaS, and cloud technologies.
+                        years of expertise in Development most recently focusing on AI but experience with; Front End Development, Backend Integrations, SaaS, and cloud technologies.
                     </p>
                 </div>
             </div>
@@ -293,9 +304,7 @@ function Home():React.ReactElement {
                                             <ul className="mt-1 min-h-[48px]">
                                                 <li className="group flex items-start text-sm text-gray-600 dark:text-gray-300"> 
                                                     {' '}
-
-                                                    {area.skills.join(", ")}
-
+                                                    {area.skills.map((oSkill,idx) => ( idx===0?`${oSkill.text}`:`, ${oSkill.text}` ))}
                                                     {' '}
                                                 </li>                                
                                             </ul>
@@ -310,7 +319,7 @@ function Home():React.ReactElement {
                                                         className="group flex items-start text-sm text-gray-600 dark:text-gray-300"
                                                         key={oTool.id}
                                                     >
-                                                        {oTool.tool}
+                                                        {oTool.text}
                                                     </li>
                                                 ))}
                                             </ul>
@@ -431,7 +440,7 @@ function Home():React.ReactElement {
                     className="absolute inset-x-0 -top-16 -z-10 flex transform-gpu justify-center overflow-hidden blur-3xl"
                 >
                     <div
-                        className="aspect-[1318/752] w-[82.375rem] flex-none bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-25"
+                        className="aspect-1318/752 w-[82.375rem] flex-none bg-linear-to-r from-[#80caff] to-[#4f46e5] opacity-25"
                         style={{
                             clipPath:
                                 'polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)',

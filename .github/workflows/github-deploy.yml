@@ -1,5 +1,8 @@
 name: GitHub Deploy to TrevKillick.dev
-run-name: ${{ github.actor }} is Deploying to Production 🚀
+permissions:
+  contents: read
+  pull-requests: write
+run-name: ${{ github.actor }} is Deploying to TrevKillick.dev
 on: [push,workflow_dispatch]
 jobs:
   Explore-GitHub-Actions:
@@ -11,10 +14,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 23
       - run: npm install
       - run: npm run build
         env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           VITE_DATE_STARTED_TECH:  ${{ secrets.VITE_DATE_STARTED_TECH }}
           VITE_DATE_STARTED_DEV:  ${{ secrets.VITE_DATE_STARTED_DEV }}
           VITE_DATE_STARTED_MANAGING:  ${{ secrets.VITE_DATE_STARTED_MANAGING }}

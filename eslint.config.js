@@ -15,7 +15,7 @@ export default tseslint.config(
         extends: [js.configs.recommended, ...tseslint.configs.strict, prettier,jsxA11y.flatConfigs.strict,react.configs.flat.all,cspellConfigs.recommended, jsdoc.configs['flat/recommended'],],
         settings: {
             react: {
-              version: "detect",
+                version: "detect",
             }
         },
         files: ['**/*.{ts,tsx}'],

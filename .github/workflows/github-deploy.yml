@@ -10,9 +10,9 @@ jobs:
     environment: Build
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: 23
       - run: npm install
@@ -24,7 +24,7 @@ jobs:
           VITE_DATE_STARTED_MANAGING:  ${{ secrets.VITE_DATE_STARTED_MANAGING }}
           VITE_APP_ID:  ${{ secrets.VITE_APP_ID }}
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}

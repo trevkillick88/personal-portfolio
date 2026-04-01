@@ -8,7 +8,7 @@ import {
     createTelemetryDeck,
 } from "@typedigital/telemetrydeck-react";
 
-const td = createTelemetryDeck({ appID: '%VITE_APP_ID%', clientUser: "anonymous" });
+const td = createTelemetryDeck({ appID: import.meta.env.VITE_APP_ID ?? 'anonymous', clientUser: "anonymous" });
 
 Sentry.init({
     dsn: "https://464223fe3668387613f4f1e37dc3a3f7@o4508902300123136.ingest.de.sentry.io/4508902301499472",

@@ -1,7 +1,7 @@
 {
   "name": "trev-killick-personal-portfolio",
   "private": true,
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
   "homepage": "https://trevorkillick.dev",
   "license": "(MIT AND Proprietary Content)",
@@ -21,7 +21,7 @@
     "@sentry/react": "^9.9.0",
     "@sentry/vite-plugin": "^3.2.2",
     "@tailwindcss/vite": "^4.0.16",
-    "@typedigital/telemetrydeck-react": "^0.2.0",
+    "@typedigital/telemetrydeck-react": "^0.5.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

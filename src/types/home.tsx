@@ -23,11 +23,11 @@ export type InterestsType = {
 }
 type SkillsType = {
     id: string;
-    skill: string;
+    text: string;
 }
 type ToolType = {
     id: string;
-    tool: string;
+    text: string;
 }
 export type AreaType = {
     id: string;
